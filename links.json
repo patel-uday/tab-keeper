@@ -1,26 +1,146 @@
 [
     {
-        "name": "Show A",
+        "name": "art_history",
+        "pet":"hagia_sophia",
         "url": "https://example.com/showA"
     },
     {
-        "name": "Show B",
-        "url": "https://example.com/showB"
-    },
-    {
-        "name": "Show C",
+        "name": "Chem Mod 1",
+        "pet":"atoms, structure, & bonding",
         "acts": [
             {
                 "name": "Act 1",
-                "url": "https://youtube.com/showC/act1"
+                "url": "https://example.com/showC/act1"
             },
             {
                 "name": "Act 2",
-                "url": "https://facebook.com/showC/act2"
+                "url": "https://example.com/showC/act2"
             },
             {
                 "name": "Act 3",
-                "url": "https://x.com/showC/act3"
+                "url": "https://example.com/showC/act3"
+            }
+        ]
+    },
+    {
+        "name": "Chem Mod 2",
+        "pet":"aqueous_solutions",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
+            }
+        ]
+    },
+    {
+        "name": "Bio Mod 1",
+        "pet":"community_ecology",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
+            }
+        ]
+    },{
+        "name": "Bio Mod 2",
+        "pet":"genetics_and_evolution",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
+            }
+        ]
+    },{
+        "name": "Bio Mod 3",
+        "pet":"physiology",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
+            }
+        ]
+    },
+    {
+        "name": "Bio Mod 4",
+        "pet":"scientific_reasoning",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
+            }
+        ]
+    },{
+        "name": "Bio Mod 5",
+        "pet":"cell_biology",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
+            }
+        ]
+    },{
+        "name": "Bio Mod 6",
+        "pet":"population_biology",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
             }
         ]
     }
