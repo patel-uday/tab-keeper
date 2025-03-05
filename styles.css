@@ -128,6 +128,14 @@ h2 {
     display: none;
 }
 
+/* Pet text styling */
+.pet-text {
+    font-size: 16px;
+    color: #555;
+    font-style: italic;
+    margin-top: 10px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     h2 {

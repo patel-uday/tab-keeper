@@ -23,15 +23,22 @@ function selectMain(event) {
     const selectedName = event.target.value;
     const actDropdownContainer = document.getElementById("actDropdownContainer");
     const actSelection = document.getElementById("actSelection");
+    const petText = document.getElementById("petText");
 
     // Reset act selection
     actSelection.innerHTML = `<option value="none">Select an Act</option>`;
     actDropdownContainer.style.display = "none";
+    petText.textContent = ""; // Clear pet text when no selection
 
     // Find the selected show in JSON
     const selectedShow = allShows.find(show => show.name === selectedName);
 
     if (selectedShow) {
+        // Display pet text
+        if (selectedShow.pet) {
+            petText.textContent = selectedShow.pet;
+        }
+        
         if (selectedShow.acts) {
             // Show second dropdown for multi-act selections
             actDropdownContainer.style.display = "block";
@@ -41,7 +48,7 @@ function selectMain(event) {
                 option.textContent = act.name;
                 actSelection.appendChild(option);
             });
-
+            
             // Reset main selection link
             selectedLink = null;
         } else {
@@ -62,6 +69,7 @@ function selectAct(event) {
 document.addEventListener("DOMContentLoaded", () => {
     const mainSelection = document.getElementById("mainSelection");
     const actSelection = document.getElementById("actSelection");
+    const petText = document.getElementById("petText");
 
     fetch("links.json")
         .then(response => response.json())
