@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Example Site",
+        "url": "https://example.com"
+    },
+    {
+        "name": "Another Site",
+        "url": "https://another-site.com"
+    },
+    {
+        "name": "Yet Another",
+        "url": "https://yetanother.com"
+    }
+]

@@ -1,0 +1,138 @@
+/* Import Konstanz Medium alternative */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap'); 
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set full white background */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff; /* Full white background */
+    font-family: 'Nunito', sans-serif; /* Konstanz Medium alternative */
+    text-align: center;
+}
+
+/* Title */
+h2 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Center container (removes box effect) */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Custom select dropdown */
+.custom-select-wrapper {
+    position: relative;
+    width: 220px;
+}
+
+/* Select styling */
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #ffffff;
+    border: 2px solid #d1d5db;
+    padding: 12px 14px;
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif; /* Apply font */
+    font-weight: 500;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    color: #333;
+}
+
+/* Custom dropdown arrow */
+.custom-select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    pointer-events: none;
+    color: #333;
+}
+
+/* Dropdown hover effect */
+.custom-select:hover {
+    border-color: #000;
+}
+
+/* Focus effect */
+.custom-select:focus {
+    border-color: #000;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Dropdown options */
+.custom-select option {
+    font-size: 18px;
+    padding: 12px;
+    background-color: white;
+    color: #333;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Open dropdown styling */
+.custom-select:focus option {
+    background-color: white;
+}
+
+/* Selected option styling */
+.custom-select option:checked {
+    background-color: #e8ebf0;
+    color: #000;
+    outline: none;
+    border: 2px solid blue;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 22px;
+    }
+    
+    .custom-select {
+        font-size: 16px;
+        padding: 10px 12px;
+    }
+    
+    .custom-select-wrapper {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    .custom-select {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .custom-select-wrapper {
+        width: 180px;
+    }
+}
