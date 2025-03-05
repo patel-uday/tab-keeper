@@ -1,12 +1,15 @@
 let selectedLink = null;
 let tabRef = null;
+let allShows = [];
 
+// Open the selected tab
 function openTab() {
     if (selectedLink && (!tabRef || tabRef.closed)) {
         tabRef = window.open(selectedLink, '_blank');
     }
 }
 
+// Monitor and reopen tabs if closed
 function monitorTab() {
     setInterval(() => {
         if (selectedLink && (!tabRef || tabRef.closed)) {
@@ -15,42 +18,67 @@ function monitorTab() {
     }, 1000);
 }
 
-function selectLink(event) {
-    const selectedOption = event.target.value;
-    if (selectedOption !== "none") {
-        if (selectedLink !== selectedOption) {
-            selectedLink = selectedOption;
-            if (tabRef && !tabRef.closed) {
-                tabRef.close();
-            }
+// Handle main dropdown selection
+function selectMain(event) {
+    const selectedName = event.target.value;
+    const actDropdownContainer = document.getElementById("actDropdownContainer");
+    const actSelection = document.getElementById("actSelection");
+
+    // Reset act selection
+    actSelection.innerHTML = `<option value="none">Select an Act</option>`;
+    actDropdownContainer.style.display = "none";
+
+    // Find the selected show in JSON
+    const selectedShow = allShows.find(show => show.name === selectedName);
+
+    if (selectedShow) {
+        if (selectedShow.acts) {
+            // Show second dropdown for multi-act selections
+            actDropdownContainer.style.display = "block";
+            selectedShow.acts.forEach(act => {
+                const option = document.createElement("option");
+                option.value = act.url;
+                option.textContent = act.name;
+                actSelection.appendChild(option);
+            });
+
+            // Reset main selection link
+            selectedLink = null;
+        } else {
+            // Single link show: Open immediately
+            selectedLink = selectedShow.url;
             openTab();
         }
-    } else {
-        selectedLink = null;
-        if (tabRef && !tabRef.closed) {
-            tabRef.close();
-        }
-        tabRef = null;
     }
+}
+
+// Handle act dropdown selection
+function selectAct(event) {
+    selectedLink = event.target.value;
+    openTab();
 }
 
 // Fetch links from JSON and populate dropdown
 document.addEventListener("DOMContentLoaded", () => {
-    const select = document.getElementById("linkSelection");
+    const mainSelection = document.getElementById("mainSelection");
+    const actSelection = document.getElementById("actSelection");
 
     fetch("links.json")
         .then(response => response.json())
         .then(data => {
-            select.innerHTML = `<option value="none">Select a link</option>`; // Default option
-            data.forEach(item => {
+            allShows = data; // Store all shows in a variable
+            mainSelection.innerHTML = `<option value="none">Select a Show</option>`;
+
+            data.forEach(show => {
                 const option = document.createElement("option");
-                option.value = item.url;
-                option.textContent = item.name; // Show name in dropdown
-                select.appendChild(option);
+                option.value = show.name;
+                option.textContent = show.name;
+                mainSelection.appendChild(option);
             });
         })
         .catch(error => console.error("Error loading JSON:", error));
 
-    select.addEventListener("change", selectLink);
+    mainSelection.addEventListener("change", selectMain);
+    actSelection.addEventListener("change", selectAct);
     monitorTab();
 });

@@ -1,14 +1,27 @@
 [
     {
-        "name": "Example Site",
-        "url": "https://example.com"
+        "name": "Show A",
+        "url": "https://example.com/showA"
     },
     {
-        "name": "Another Site",
-        "url": "https://another-site.com"
+        "name": "Show B",
+        "url": "https://example.com/showB"
     },
     {
-        "name": "Yet Another",
-        "url": "https://yetanother.com"
+        "name": "Show C",
+        "acts": [
+            {
+                "name": "Act 1",
+                "url": "https://example.com/showC/act1"
+            },
+            {
+                "name": "Act 2",
+                "url": "https://example.com/showC/act2"
+            },
+            {
+                "name": "Act 3",
+                "url": "https://example.com/showC/act3"
+            }
+        ]
     }
 ]

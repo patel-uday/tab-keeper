@@ -8,11 +8,24 @@
 </head>
 <body>
     <div class="container">
-        <h2>SELECT SURVEY</h2>
-        <div class="custom-select-wrapper">
-            <select class="custom-select" id="linkSelection">
-                <option value="none">Loading...</option> <!-- Placeholder until JSON loads -->
-            </select>
+        <!-- Logo Image -->
+        <img src="logo.png" alt="Dreamscape Learn Logo" class="logo">
+
+        <!-- Title -->
+        <h2>Select a Link to Keep Open</h2>
+
+        <!-- Dropdown Containers -->
+        <div class="dropdown-container">
+            <div class="custom-select-wrapper">
+                <select class="custom-select" id="mainSelection">
+                    <option value="none">Loading...</option>
+                </select>
+            </div>
+            <div class="custom-select-wrapper" id="actDropdownContainer" style="display: none;">
+                <select class="custom-select" id="actSelection">
+                    <option value="none">Select an Act</option>
+                </select>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
