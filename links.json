@@ -59,7 +59,7 @@
         ]
     },{
         "name": "Bio Mod 2",
-        "pet":"genetics_and_evolution",
+        "pet":"cell_biology",
         "acts": [
             {
                 "name": "Act 1",
@@ -111,7 +111,7 @@
         ]
     },{
         "name": "Bio Mod 5",
-        "pet":"cell_biology",
+        "pet":"genetics_and_evolution",
         "acts": [
             {
                 "name": "Act 1",
