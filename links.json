@@ -42,7 +42,7 @@
     },
     {
         "name": "Bio Mod 1",
-        "pet":"community_ecology",
+        "pet":"scientific_reasoning",
         "acts": [
             {
                 "name": "Act 1",
@@ -94,7 +94,7 @@
     },
     {
         "name": "Bio Mod 4",
-        "pet":"scientific_reasoning",
+        "pet":"community_ecology",
         "acts": [
             {
                 "name": "Act 1",
