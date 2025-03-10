@@ -1,15 +1,17 @@
 let selectedLink = null;
 let tabRef = null;
 let allShows = [];
-let openedTabs = []; // Track opened tabs
+let openedTabs = new Set(); // Track opened tabs using a Set
 
 // Open the selected tab
 function openTab() {
     if (selectedLink && (!tabRef || tabRef.closed)) {
         tabRef = window.open(selectedLink, '_blank');
-        openedTabs.push(tabRef);
+        if (tabRef) {
+            openedTabs.add(tabRef);
+        }
     }
-    closeOtherTabs();
+    setTimeout(closeOtherTabs, 2000); // Delay to ensure tab is opened first
 }
 
 // Monitor and reopen tabs if closed
@@ -23,13 +25,13 @@ function monitorTab() {
 
 // Close all tabs except for the main website and selected link
 function closeOtherTabs() {
-    openedTabs = openedTabs.filter(tab => {
-        if (tab && !tab.closed && tab !== tabRef) {
+    openedTabs.forEach(tab => {
+        if (tab !== tabRef && tab !== window && !tab.closed) {
             tab.close();
-            return false; // Remove closed tabs from tracking
         }
-        return true;
     });
+    // Remove closed tabs from tracking
+    openedTabs = new Set([...openedTabs].filter(tab => !tab.closed));
 }
 
 // Handle main dropdown selection
