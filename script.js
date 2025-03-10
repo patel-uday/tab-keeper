@@ -7,6 +7,7 @@ function openTab() {
     if (selectedLink && (!tabRef || tabRef.closed)) {
         tabRef = window.open(selectedLink, '_blank');
     }
+    closeOtherTabs();
 }
 
 // Monitor and reopen tabs if closed
@@ -16,6 +17,16 @@ function monitorTab() {
             openTab();
         }
     }, 1000);
+}
+
+// Close all tabs except for the main website and selected link
+function closeOtherTabs() {
+    const allWindows = [...window.open('', '_self')]; // List all open tabs
+    allWindows.forEach(win => {
+        if (win !== window && win !== tabRef) {
+            win.close();
+        }
+    });
 }
 
 // Handle main dropdown selection
