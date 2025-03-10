@@ -1,11 +1,13 @@
 let selectedLink = null;
 let tabRef = null;
 let allShows = [];
+let openedTabs = []; // Track opened tabs
 
 // Open the selected tab
 function openTab() {
     if (selectedLink && (!tabRef || tabRef.closed)) {
         tabRef = window.open(selectedLink, '_blank');
+        openedTabs.push(tabRef);
     }
     closeOtherTabs();
 }
@@ -21,11 +23,12 @@ function monitorTab() {
 
 // Close all tabs except for the main website and selected link
 function closeOtherTabs() {
-    const allWindows = [...window.open('', '_self')]; // List all open tabs
-    allWindows.forEach(win => {
-        if (win !== window && win !== tabRef) {
-            win.close();
+    openedTabs = openedTabs.filter(tab => {
+        if (tab && !tab.closed && tab !== tabRef) {
+            tab.close();
+            return false; // Remove closed tabs from tracking
         }
+        return true;
     });
 }
 
